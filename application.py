@@ -23,12 +23,12 @@ def charge():
     amount = 500
  
     customer = stripe.Customer.create(
-        email= 'customer@example.com',
+        email='customer@example.com',
         card=request.form['stripeToken']
     )
 
     charge = stripe.Charge.create(
-        customer=customer_id,
+        customer=customer.id,
         amount=amount,
         currency='usd',
         description='Paying Bill'
